@@ -6,6 +6,7 @@ RSA_PRIVATE_KEY="/Users/udita.bose/mms/server/scripts/nds/nds.ssh.private.pem"
 export PATH="/usr/local/opt/openssl/bin:$PATH"
 openssl_test_command="openssl pkeyutl -decrypt -inkey $RSA_PRIVATE_KEY -pkeyopt rsa_padding_mode:oaep -pkeyopt rsa_oaep_md:sha256 -pkeyopt rsa_mgf1_md:sha256"
 
+
 # BASE64_DATA=$(echo -n $TEST_DECRYPT_DATA | base64 --decode)
 # echo "$BASE64_DATA"
 # echo "--------"
