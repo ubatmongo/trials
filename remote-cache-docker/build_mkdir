@@ -1,0 +1,15 @@
+docker build --tag custcache:latest .                                                                                                                                                                  [21:00:18]
+[+] Building 0.4s (5/5) FINISHED
+=> [internal] load build definition from Dockerfile                                                                                                                                                           0.0s
+=> => transferring dockerfile: 100B                                                                                                                                                                           0.0s
+=> [internal] load .dockerignore                                                                                                                                                                              0.0s
+=> => transferring context: 2B                                                                                                                                                                                0.0s
+=> [internal] load metadata for docker.io/buchgr/bazel-remote-cache:latest                                                                                                                                    0.0s
+=> CACHED [1/2] FROM docker.io/buchgr/bazel-remote-cache                                                                                                                                                      0.0s
+=> ERROR [2/2] RUN mkdir /tmp/cache_data                                                                                                                                                                      0.3s
+------
+> [2/2] RUN mkdir /tmp/cache_data:
+#5 0.287 container_linux.go:380: starting container process caused: exec: "/bin/sh": stat /bin/sh: no such file or directory
+------
+executor failed running [/bin/sh -c mkdir /tmp/cache_data]: exit code: 1
+FAIL: 1

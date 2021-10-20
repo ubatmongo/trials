@@ -1,0 +1,17 @@
+# syntax=docker/dockerfile:1
+
+FROM buchgr/bazel-remote-cache AS remote-cache
+
+FROM alpine:latest AS builder
+RUN apk --no-cache add build-base ca-certificates
+RUN mkdir /tmp/cache_data
+WORKDIR /tmp/
+
+COPY --from=remote-cache * /tmp/remote-cache
+# ENTRYPOINT ["/tmp/remote-cache/bazel-remote-base.binary"]
+# CMD ["--max_size=1", "--dir=/tmp/cache_data", "--access_log_level=all"]
+# bazel-remote-base.binary
+# ENTRYPOINT ["/tmp/remote-cache"]
+# CMD ["--max_size=1", "--dir=/tmp/cache_data", "--access_log_level=all"]
+ENTRYPOINT ["ls"]
+CMD ["-l", "/app/bazel-remote-base.binary.runfiles/__main__/bazel-remote-base.binary_/bazel-remote-base.binary"]
